@@ -1,0 +1,40 @@
+project:
+  type: book
+  output-dir: docs 
+
+book:
+  title: "Creación de Base de Datos"
+  author: "Eduardo Barea"
+  date: "12/27/2024"
+  chapters:
+    - index.qmd
+    - 01_tarnsformacion_datos.qmd
+    - 02_transformacion_datos.qmd
+    - 03_transformacion_datos.qmd
+
+bibliography: references.bib
+
+sidebar:
+  style: docked
+  background: dark
+
+format:
+  html:
+    theme:
+      light: [flatly, theme-light.scss]
+      dark: [darkly, theme-dark.scss]
+    code-fold: true
+    code-summary: "Mostrar el Código"
+
+comments:
+  hypothesis: true
+
+highlight-style: vim-dark
+
+website:
+  navbar:
+    background: primary
+    search: true
+    left:
+      - text: "Home"
+        href: index.qmd

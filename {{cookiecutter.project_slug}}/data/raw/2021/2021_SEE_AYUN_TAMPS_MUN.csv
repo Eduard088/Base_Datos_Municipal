@@ -1,0 +1,44 @@
+﻿ID_ESTADO,NOMBRE_ESTADO,ID_MUNICIPIO,MUNICIPIO,SECCIONES,CASILLAS,PAN,PRI,PRD,PVEM,PT,MC,MORENA,PES,RSP,FXM,PT_MORENA,CAND_IND1,CAND_IND2,CAND_IND3,CAND_IND4,CAND_IND5,CAND_IND6,CAND_IND7,CAND_IND8,CAND_IND9,CAND_IND10,CAND_IND11,CAND_IND12,CAND_IND13,NUM_VOTOS_VALIDOS,NUM_VOTOS_CAN_NREG,NUM_VOTOS_NULOS,TOTAL_VOTOS,LISTA_NOMINAL,RUTA_ACTA
+28,TAMAULIPAS,1,ABASOLO,11,17,2775,3144,8,4,71,6,117,31,3,6,12,,,,,,,,,,,,,,6177,62,191,6430,8442,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_Abasolo.pdf
+28,TAMAULIPAS,2,ALDAMA,21,46,7121,252,283,1533,131,5089,1857,53,55,42,17,,,,,,,,,,,,,,16433,0,521,16954,23665,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_Aldama.pdf
+28,TAMAULIPAS,3,ALTAMIRA,84,277,36756,4416,2351,598,2055,1608,38139,3037,631,491,633,,,,,,,,,,,,,,90715,32,2387,93134,175540,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_Altamira.pdf
+28,TAMAULIPAS,4,ANTIGUO MORELOS,7,14,3699,404,12,402,85,8,360,102,4,132,8,,,,,,,,,,,,,,5216,1,115,5332,7450,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_AntiguoMorelos.pdf
+28,TAMAULIPAS,5,BURGOS,8,12,2072,15,13,16,1779,2,157,3,2,0,38,,,,,,,,,,,,,,4097,0,53,4150,4848,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_Burgos.pdf
+28,TAMAULIPAS,6,BUSTAMANTE,9,15,2654,712,7,19,50,10,1029,24,36,7,96,,,,,,,,,,,,,,4644,0,68,4712,5884,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_Bustamante.pdf
+28,TAMAULIPAS,7,CAMARGO,15,24,2307,1698,27,35,775,9,1356,53,15,95,174,,,,,,,,,,,,,,6544,1,182,6727,12776,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_Camargo.pdf
+28,TAMAULIPAS,8,CASAS,8,13,1780,1063,4,342,67,4,92,3,1,1,33,,,,,,,,,,,,,,3390,1,91,3482,4480,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_Casas.pdf
+28,TAMAULIPAS,9,CIUDAD MADERO,107,289,34837,3078,659,1346,1667,1764,46280,2171,1006,551,669,4016,,,,,,,,,,,,,98044,77,1421,99542,172200,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_CiudadMadero.pdf
+28,TAMAULIPAS,10,CRUILLAS,5,7,1091,76,1,1,33,7,685,5,10,2,2,,,,,,,,,,,,,,1913,3,39,1955,2349,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_Cruillas.pdf
+28,TAMAULIPAS,11,GOMEZ FARIAS,7,17,2372,265,14,1667,78,18,652,33,22,5,87,,,,,,,,,,,,,,5213,0,118,5331,7248,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_GomezFarias.pdf
+28,TAMAULIPAS,12,GONZALEZ,37,66,6236,3311,193,127,358,755,4785,384,106,48,111,,2057,,,,,,,,,,,,18471,3,485,18959,32131,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_Gonzalez.pdf
+28,TAMAULIPAS,13,GÜEMEZ,15,28,2975,3723,6,33,28,2576,465,163,5,18,3,,,15,,,,,,,,,,,10010,1,126,10137,13137,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_Guemez.pdf
+28,TAMAULIPAS,14,GUERRERO,3,6,337,671,0,498,44,1,192,3,1,0,4,,,,,,,,,,,,,,1751,0,52,1803,2524,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_Guerrero.pdf
+28,TAMAULIPAS,15,GUSTAVO DIAZ ORDAZ,14,27,1497,367,7,194,656,13,1328,1715,17,1376,109,,,,,,,,,,,,,,7279,2,165,7446,13517,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_GustavoDiazOrdaz.pdf
+28,TAMAULIPAS,16,HIDALGO,21,31,7095,356,55,135,229,56,776,35,11,16,77,,,,,,,,,,,,,,8841,0,234,9075,14329,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_Hidalgo.pdf
+28,TAMAULIPAS,17,JAUMAVE,12,28,3150,328,23,31,52,50,528,46,52,366,62,,,,4204,,,,,,,,,,8892,9,281,9182,12332,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_Jaumave.pdf
+28,TAMAULIPAS,18,JIMENEZ,8,13,2136,2193,2,2,6,8,176,7,9,6,1,,,,,,,,,,,,,,4546,2,100,4648,6075,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_Jimenez.pdf
+28,TAMAULIPAS,19,LLERA,18,30,4700,320,20,39,244,106,543,30,36,35,56,,,,,3224,,,,,,,,,9353,1,396,9750,12938,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_Llera.pdf
+28,TAMAULIPAS,20,MAINERO,4,6,1111,48,18,12,150,3,23,0,0,1,0,,,,,,,,,,,,,,1366,2,38,1406,2015,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_Mainero.pdf
+28,TAMAULIPAS,21,EL MANTE,86,161,16694,11470,248,6400,712,560,14209,1101,189,225,116,,,,,,,,,,,,,,51924,9,1002,52935,86769,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_ElMante.pdf
+28,TAMAULIPAS,22,MATAMOROS,234,688,51208,15262,1139,3592,3901,3562,103382,2414,1262,1798,884,,,,,,,,,,,,,,188404,165,3880,192449,418044,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_Matamoros.pdf
+28,TAMAULIPAS,23,MENDEZ,6,10,1554,1257,0,19,36,2,43,2,0,104,0,,,,,,,,,,,,,,3017,,62,3079,3958,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_Mendez.pdf
+28,TAMAULIPAS,24,MIER,6,9,926,37,5,4,185,5,352,26,6,3,99,,,,,,700,,,,,,,,2348,0,87,2435,4164,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_Mier.pdf
+28,TAMAULIPAS,25,MIGUEL ALEMAN,22,40,5388,3595,12,1611,69,14,776,21,4,40,11,,,,,,,,,,,,,,11541,0,226,11767,21071,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_MiguelAleman.pdf
+28,TAMAULIPAS,26,MIQUIHUANA,4,7,1517,731,8,81,76,2,33,0,3,0,80,,,,,,,,,,,,,,2531,0,55,2586,3092,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_Miquihuana.pdf
+28,TAMAULIPAS,27,NUEVO LAREDO,206,539,62477,10099,663,1754,2579,2536,61433,1330,1271,2162,617,,,,,,,1063,,,,,,,147984,82,3218,151284,324662,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_NuevoLaredo.pdf
+28,TAMAULIPAS,28,NUEVO MORELOS,3,6,1474,1077,2,1,48,1,51,0,0,0,38,,,,,,,,,,,,,,2692,0,52,2744,3345,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_NuevoMorelos.pdf
+28,TAMAULIPAS,29,OCAMPO,14,22,3789,1100,13,34,67,18,256,197,20,11,4,,,,,,,,2325,,,,,,7834,6,285,8125,11094,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_Ocampo.pdf
+28,TAMAULIPAS,30,PADILLA,9,22,4995,272,16,122,691,41,1744,31,65,14,113,,,,,,,,,,,,,,8104,1,119,8224,11674,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_Padilla.pdf
+28,TAMAULIPAS,31,PALMILLAS,4,5,978,34,1,3,6,6,312,5,4,2,,,,,,,,,,,,,,,1351,0,19,1370,1818,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_Palmillas.pdf
+28,TAMAULIPAS,32,REYNOSA,409,936,73904,12443,2428,6062,5777,9788,94357,14227,4106,2932,1348,,,,,,,,,,,,,,227372,108,5923,233403,540839,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_Reynosa.pdf
+28,TAMAULIPAS,33,RIO BRAVO,72,179,18220,4765,546,1112,2734,858,16293,332,578,357,271,,,,,,,,,1602,1187,,,,48855,10,1071,49936,105943,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_RioBravo.pdf
+28,TAMAULIPAS,34,SAN CARLOS,12,18,3615,198,30,26,46,30,261,18,10,21,19,,,,,,,,,,,,,,4274,2,224,4500,7039,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_SanCarlos.pdf
+28,TAMAULIPAS,35,SAN FERNANDO,51,78,8098,6379,206,668,655,298,6989,244,252,142,113,,,,,,,,,,,,,,24044,90,437,24571,38855,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_SanFernando.pdf
+28,TAMAULIPAS,36,SAN NICOLAS,2,3,730,22,0,2,4,0,8,0,0,5,0,,,,,,,,,,,,,,771,0,8,779,986,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_SanNicolas.pdf
+28,TAMAULIPAS,37,SOTO LA MARINA,24,45,4983,253,30,135,5452,34,1594,85,562,77,280,,,,,,,,,,,,,,13485,1,283,13769,19630,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_SotoLaMarina.pdf
+28,TAMAULIPAS,38,TAMPICO,192,440,75773,2939,735,1199,2208,2636,52481,1757,2416,658,860,,,,,,,,,,,,,,143662,133,2186,145981,251604,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_Tampico.pdf
+28,TAMAULIPAS,39,TULA,19,43,6292,4566,91,62,120,103,2040,150,100,417,48,,,,,,,,,,,,,,13989,6,339,14334,22677,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_Tula.pdf
+28,TAMAULIPAS,40,VALLE HERMOSO,45,86,9458,4874,83,588,942,256,8239,195,61,224,60,,,,,,,,,,,,,,24980,1,380,25361,47439,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_ValleHermoso.pdf
+28,TAMAULIPAS,41,VICTORIA,149,422,48266,19956,1920,2161,3296,6348,51410,2017,1000,1975,654,,,,,,,,,,,1256,4105,2885,147249,154,2703,150106,254001,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_Victoria.pdf
+28,TAMAULIPAS,42,VILLAGRAN,7,13,3020,126,36,27,52,5,83,16,1,5,0,,,,,,,,,,,,,,3371,0,83,3454,4580,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_Villagran.pdf
+28,TAMAULIPAS,43,XICOTENCATL,21,38,7002,280,72,45,211,235,5650,75,105,44,,,,,,,,,,,,,,,13719,0,205,13924,18776,https://www.ietam.org.mx/Portal/documentos/PE2021/Resultados/Actas/ActCom_Xicotencatl.pdf

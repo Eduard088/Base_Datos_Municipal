@@ -1,0 +1,16 @@
+---
+title: "Proyecto de Limpieza de Datos Electorales y Creación de Base de Datos"
+css: custom.css
+
+execute:
+  enabled: true
+  kernel: R
+---
+
+# Introducción: {.fade-in}
+
+En este documento se presenta un análisis exhaustivo de los datos electorales obtenidos del Sistema Nacional Electoral (SNE) del Instituto Nacional Electoral (INE) de México. La información recopilada abarca los procesos electorales llevados a cabo en los municipios del país durante el periodo comprendido entre los años 2014 y 2023. El objetivo principal de este análisis es realizar una limpieza y depuración de los datos electorales para asegurar su integridad y precisión.
+
+El proceso de limpieza de datos es fundamental para garantizar que los análisis subsecuentes sean fiables y válidos. Esto implica la identificación y corrección de errores, la eliminación de duplicados, y la normalización de los datos para que sean consistentes y comparables a lo largo del tiempo y entre diferentes municipios. La información procesada incluye datos sobre la participación electoral, los resultados de las votaciones, y otros indicadores relevantes que permiten una comprensión profunda de las dinámicas electorales en los municipios mexicanos.
+
+Este trabajo es esencial para investigadores, analistas y tomadores de decisiones que buscan entender mejor los patrones y tendencias en los procesos electorales de México, así como para aquellos interesados en mejorar la transparencia y la eficiencia de los sistemas electorales en el país.
