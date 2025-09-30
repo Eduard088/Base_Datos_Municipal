@@ -38,6 +38,42 @@ reactable(datos_electorales_2015_2023)
 
 ## Guardar los Resultados en la Carpeta 'final': {.fade-in}
 Finalmente, guardamos los datos unidos en un archivo CSV en la carpeta 'final' para su uso posterior.
+
 ```{r}
-write_csv(datos_electorales_2015_2023, "/home/barea/limpieza/ayuntamientos/{{cookiecutter.project_slug}}/data/final/datos_electorales_2015_2023.csv")
+datos_electorales_2015_2023 <- datos_electorales_2015_2023 %>%
+  mutate(Partido = ifelse(Partido == "(CAND_IND4) JESUS ABRAHAM CANO GONZALEZ" | grepl("^CAND_IND", Partido), 
+                          "Candidatura Independiente", 
+                          Partido))
+```
+```{r}
+datos_electorales_2015_2023 <- datos_electorales_2015_2023 %>%
+  mutate(Partido = ifelse(Partido == "(CAND_IND4) JESUS ABRAHAM CANO GONZALEZ" | 
+                          grepl("^CAND_IND", Partido) | 
+                          Partido == "CANDIDATURA INDEPENDIENTE", 
+                          "Candidatura Independiente", 
+                          Partido))
+```
+
+
+```{r}
+datos_electorales_2015_2023 %>%
+  filter(Partido == "Candidatura Independiente") %>%
+  group_by(Año) %>%
+  count() %>%
+  rename(Independientes = n)
+```
+
+
+```{r}
+reactable(datos_electorales_2015_2023)
+```
+
+```{r}
+datos_electorales_2015_2023 <-     datos_electorales_2015_2023 %>%
+  rename(ID_estado = ID_ESTADO, Nombre_estado = NOMBRE_ESTADO, ID_municipio = ID_MUNICIPIO, Municipio = MUNICIPIO, Votos_validos = NUM_VOTOS_VALIDOS,  Votos_candidato_sin_registro=NUM_VOTOS_CAN_NREG, Votos_nulos= NUM_VOTOS_NULOS, Total_de_votos = TOTAL_VOTOS, Lista_nominal = LISTA_NOMINAL )
+```
+
+
+```{r}
+# write_csv(datos_electorales_2015_2023, "/home/barea/limpieza/ayuntamientos/{{cookiecutter.project_slug}}/data/final/datos_electorales_2015_2023.csv")
 ```

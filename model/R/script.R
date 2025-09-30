@@ -4,6 +4,7 @@ library(purrr)
 library(reactable)
 library(readr)
 library(tidyr)
+library(stringr)
 
 # Función para limpiar los datos
 limpiar_datos <- function(file_path) {
@@ -164,4 +165,142 @@ unir_tibbles <- function(...) {
   tibble_unido <- dplyr::bind_rows(tibbles)
   
   return(tibble_unido)
+}
+
+
+calcular_votos_coalicion <- function(datos_2015) {
+  
+  # Función auxiliar para determinar si un partido es coalición
+  es_coalicion <- function(partido) {
+    # No es coalición si:
+    # 1. Es "NVA_ALIANZA" (partido individual)
+    # 2. Comienza con "CAND_IND" seguido de número
+    # 3. No contiene "_"
+    
+    if (is.na(partido)) return(FALSE)
+    
+    # Casos especiales que NO son coaliciones
+    if (partido == "NVA_ALIANZA") return(FALSE)
+    if (str_detect(partido, "^CAND_IND\\d+$")) return(FALSE)
+    
+    # Es coalición si contiene "_"
+    return(str_detect(partido, "_"))
+  }
+  
+  # Función auxiliar para obtener partidos componentes de una coalición
+  obtener_partidos_componentes <- function(coalicion) {
+    if (is.na(coalicion)) return(character(0))
+    return(str_split(coalicion, "_")[[1]])
+  }
+  
+  # Función auxiliar para calcular votos de coalición en un distrito específico
+  calcular_votos_municipio <- function(datos_municipio) {
+    
+    # Crear diccionario de votos por partido en este distrito
+    votos_por_partido <- setNames(datos_municipio$Votos, datos_municipio$Partido)
+    
+    # Calcular votos_coalicion para cada fila
+    datos_municipio$votos_coalicion <- sapply(1:nrow(datos_municipio), function(i) {
+      partido <- datos_municipio$Partido[i]
+      votos_originales <- datos_municipio$Votos[i]
+      
+      # Si no es coalición, usar votos originales
+      if (!es_coalicion(partido)) {
+        return(ifelse(is.na(votos_originales), 0, votos_originales))
+      }
+      
+      # Si es coalición, sumar votos de partidos componentes más votos propios
+      partidos_componentes <- obtener_partidos_componentes(partido)
+      
+      # Sumar votos de cada partido componente
+      votos_componentes <- sum(sapply(partidos_componentes, function(p) {
+        voto <- votos_por_partido[p]
+        return(ifelse(is.na(voto), 0, voto))
+      }), na.rm = TRUE)
+      
+      # Sumar votos propios de la coalición (si existen)
+      votos_propios <- ifelse(is.na(votos_originales), 0, votos_originales)
+      
+      return(votos_componentes + votos_propios)
+    })
+    
+    return(datos_municipio)
+  }
+  
+  # Aplicar el cálculo agrupado por ID_ESTADO, ID_DISTRITO y CABECERA_DISTRITAL
+  resultado <- datos_2015 %>%
+    group_by(ID_ESTADO, NOMBRE_ESTADO, ID_MUNICIPIO, MUNICIPIO) %>%
+    group_modify(~ calcular_votos_municipio(.x)) %>%
+    ungroup()
+  
+  return(resultado)
+}
+
+
+calcular_votos_coalicion_2018 <- function(datos_2015) {
+  
+  # Función auxiliar para determinar si un partido es coalición
+  es_coalicion <- function(partido) {
+    # No es coalición si:
+    # 1. Es "NVA_ALIANZA" (partido individual)
+    # 2. Comienza con "CAND_IND" seguido de número
+    # 3. No contiene "_"
+    
+    if (is.na(partido)) return(FALSE)
+    
+    # Casos especiales que NO son coaliciones
+    if (partido == "NVA_ALIANZA") return(FALSE)
+    if (str_detect(partido, "^CAND_IND\\d+$")) return(FALSE)
+    
+    # Es coalición si contiene "_"
+    return(str_detect(partido, "_"))
+  }
+  
+  # Función auxiliar para obtener partidos componentes de una coalición
+  obtener_partidos_componentes <- function(coalicion) {
+    if (is.na(coalicion)) return(character(0))
+    return(str_split(coalicion, "_")[[1]])
+  }
+  
+  # Función auxiliar para calcular votos de coalición en un distrito específico
+  calcular_votos_distrito <- function(datos_distrito) {
+    
+    # Crear diccionario de votos por partido en este distrito
+    votos_por_partido <- setNames(datos_distrito$Votos, datos_distrito$Partido)
+    
+    # Calcular votos_coalicion para cada fila
+    datos_distrito$votos_coalicion <- sapply(1:nrow(datos_distrito), function(i) {
+      partido <- datos_distrito$Partido[i]
+      votos_originales <- datos_distrito$Votos[i]
+      
+      # Si no es coalición, usar votos originales
+      if (!es_coalicion(partido)) {
+        return(ifelse(is.na(votos_originales), 0, votos_originales))
+      }
+      
+      # Si es coalición, sumar votos de partidos componentes más votos propios
+      partidos_componentes <- obtener_partidos_componentes(partido)
+      
+      # Sumar votos de cada partido componente
+      votos_componentes <- sum(sapply(partidos_componentes, function(p) {
+        voto <- votos_por_partido[p]
+        return(ifelse(is.na(voto), 0, voto))
+      }), na.rm = TRUE)
+      
+      # Sumar votos propios de la coalición (si existen)
+      votos_propios <- ifelse(is.na(votos_originales), 0, votos_originales)
+      
+      return(votos_componentes + votos_propios)
+    })
+    
+    return(datos_distrito)
+  }
+  
+  # Aplicar el cálculo agrupado por ID_ESTADO, ID_DISTRITO y CABECERA_DISTRITAL
+  resultado <- datos_2015 %>%
+    group_by(ID_ESTADO, NOMBRE_ESTADO, ID_DISTRITO_LOCAL, CABECERA_DISTRITAL_LOCAL) %>%
+    group_modify(~ calcular_votos_distrito(.x)) %>%
+    ungroup()
+  
+  return(resultado)
 }

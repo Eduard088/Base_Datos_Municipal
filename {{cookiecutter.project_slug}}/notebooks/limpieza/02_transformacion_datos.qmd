@@ -37,8 +37,16 @@ datos_2015 <-  agregar_anio(datos_2015, anio=2015)
 
 ### Filtrar Datos: {.fade-in}
 En esta sección, filtramos los datos para quedarnos únicamente con las columnas que nos interesan.
+
 ```{r}
-datos_2015 <- eliminar_na_y_cero(datos_2015)
+datos_2015 <- datos_2015 %>%
+  mutate(Votos = ifelse(is.na(Votos), "Sin Registro", as.character(Votos)))
+  ```
+
+
+```{r}
+datos_2015 <- datos_2015 %>%
+  filter(Votos != "Sin Registro")
 ```
 
 ### Mostrar el Resultado: {.fade-in}
@@ -77,7 +85,14 @@ datos_2016 <-  agregar_anio(datos_2016, anio=2016)
 ### Filtrar Datos: {.fade-in}
 En esta sección, filtramos los datos para quedarnos únicamente con las columnas que nos interesan.
 ```{r}
-datos_2016 <- eliminar_na_y_cero(datos_2016)
+datos_2016 <- datos_2016 %>%
+  mutate(Votos = ifelse(is.na(Votos), "Sin Registro", as.character(Votos)))
+  ```
+
+
+```{r}
+datos_2016 <- datos_2016 %>%
+  filter(Votos != "Sin Registro")
 ```
 
 ### Mostrar el Resultado: {.fade-in}
@@ -116,7 +131,14 @@ datos_2017 <-  agregar_anio(datos_2017, anio=2017)
 ### Filtrar Datos: {.fade-in}
 En esta sección, filtramos los datos para quedarnos únicamente con las columnas que nos interesan.
 ```{r}
-datos_2017 <- eliminar_na_y_cero(datos_2017)
+datos_2017 <- datos_2017 %>%
+  mutate(Votos = ifelse(is.na(Votos), "Sin Registro", as.character(Votos)))
+  ```
+
+
+```{r}
+datos_2017 <- datos_2017 %>%
+  filter(Votos != "Sin Registro")
 ```
 
 ### Mostrar el Resultado: {.fade-in}
@@ -156,7 +178,14 @@ datos_2018 <-  agregar_anio(datos_2018, anio=2018)
 ### Filtrar Datos: {.fade-in}
 En esta sección, filtramos los datos para quedarnos únicamente con las columnas que nos interesan.
 ```{r}
-datos_2018 <- eliminar_na_y_cero(datos_2018)
+datos_2018 <- datos_2018 %>%
+  mutate(Votos = ifelse(is.na(Votos), "Sin Registro", as.character(Votos)))
+  ```
+
+
+```{r}
+datos_2018 <- datos_2018 %>%
+  filter(Votos != "Sin Registro")
 ```
 
 ### Mostrar el Resultado: {.fade-in}
@@ -195,7 +224,14 @@ datos_2019 <-  agregar_anio(datos_2019, anio=2019)
 ### Filtrar Datos: {.fade-in}
 En esta sección, filtramos los datos para quedarnos únicamente con las columnas que nos interesan.
 ```{r}
-datos_2019 <- eliminar_na_y_cero(datos_2019)
+datos_2019 <- datos_2019 %>%
+  mutate(Votos = ifelse(is.na(Votos), "Sin Registro", as.character(Votos)))
+  ```
+
+
+```{r}
+datos_2019 <- datos_2019 %>%
+  filter(Votos != "Sin Registro")
 ```
 
 ### Mostrar el Resultado: {.fade-in}
@@ -234,7 +270,14 @@ datos_2021 <-  agregar_anio(datos_2021, anio=2021)
 ### Filtrar Datos: {.fade-in}
 En esta sección, filtramos los datos para quedarnos únicamente con las columnas que nos interesan.
 ```{r}
-datos_2021 <- eliminar_na_y_cero(datos_2021)
+datos_2021 <- datos_2021 %>%
+  mutate(Votos = ifelse(is.na(Votos), "Sin Registro", as.character(Votos)))
+```
+
+
+```{r}
+datos_2021 <- datos_2021 %>%
+  filter(Votos != "Sin Registro")
 ```
 
 ### Mostrar el Resultado: {.fade-in}
@@ -273,7 +316,14 @@ datos_2022 <-  agregar_anio(datos_2022, anio=2022)
 ### Filtrar Datos: {.fade-in}
 En esta sección, filtramos los datos para quedarnos únicamente con las columnas que nos interesan.
 ```{r}
-datos_2022 <- eliminar_na_y_cero(datos_2022)
+datos_2022 <- datos_2022 %>%
+  mutate(Votos = ifelse(is.na(Votos), "Sin Registro", as.character(Votos)))
+  ```
+
+
+```{r}
+datos_2022 <- datos_2022 %>%
+  filter(Votos != "Sin Registro")
 ```
 
 ### Mostrar el Resultado: {.fade-in}

@@ -38,6 +38,32 @@ Mostramos los datos limpios en una tabla interactiva para una revisión visual r
 reactable(datos_2015)
 ```
 
+
+```{r}
+datos_2015 <- datos_2015 %>%
+  mutate(Partido = str_replace_all(Partido, "NVA_ALIANZA", "NUAL"))
+```
+
+```{r}
+datos_2015 <- datos_2015 %>%
+  mutate(Partido = case_when(
+    Partido == "NA" ~ "NUAL",
+    str_detect(Partido, "_NA$") ~ str_replace(Partido, "_NA$", "_NUAL"),
+    str_detect(Partido, "^NA_") ~ str_replace(Partido, "^NA_", "NUAL_"),
+    str_detect(Partido, "_NA_") ~ str_replace(Partido, "_NA_", "_NUAL_"),
+    TRUE ~ Partido
+  ))
+```
+
+
+```{r}
+datos_2015 <- calcular_votos_coalicion(datos_2015)
+```
+
+```{r}
+reactable(datos_2015)
+```
+
 ### Guardar los Resultados en la Carpeta 'Preprocessed': {.fade-in}
 Finalmente, guardamos los datos limpios en un archivo CSV en la carpeta 'preprocessed' para su uso posterior.
 ```{r}
@@ -73,6 +99,33 @@ Aquí se muestra el data frame resultante de los datos limpios utilizando la fun
 reactable(datos_2016)
 ```
 
+
+```{r}
+datos_2016 <- datos_2016 %>%
+  mutate(Partido = str_replace_all(Partido, "NVA_ALIANZA", "NUAL"))
+```
+
+```{r}
+datos_2016 <- datos_2016 %>%
+  mutate(Partido = case_when(
+    Partido == "NA" ~ "NUAL",
+    str_detect(Partido, "_NA$") ~ str_replace(Partido, "_NA$", "_NUAL"),
+    str_detect(Partido, "^NA_") ~ str_replace(Partido, "^NA_", "NUAL_"),
+    str_detect(Partido, "_NA_") ~ str_replace(Partido, "_NA_", "_NUAL_"),
+    TRUE ~ Partido
+  ))
+```
+
+
+```{r}
+datos_2016 <- calcular_votos_coalicion(datos_2016)
+```
+
+
+```{r}
+reactable(datos_2016)
+```
+
 ### Guardar los Resultados en la Carpeta 'Preprocessed': {.fade-in}
 Finalmente, se guardan los datos limpios y procesados en un archivo CSV en la carpeta 'preprocessed' para su uso posterior.
 ```{r}
@@ -101,6 +154,31 @@ datos_2017 <- purrr::map_dfr(archivos_csv_2017, limpiar_datos)
 
 ### Mostrar el Resultado: {.fade-in}
 Esta sección muestra el data frame resultante en una tabla interactiva.
+```{r}
+reactable(datos_2017)
+```
+
+
+```{r}
+datos_2017 <- datos_2017 %>%
+  mutate(Partido = str_replace_all(Partido, "NVA_ALIANZA", "NUAL"))
+```
+
+```{r}
+datos_2017 <- datos_2017 %>%
+  mutate(Partido = case_when(
+    Partido == "NA" ~ "NUAL",
+    str_detect(Partido, "_NA$") ~ str_replace(Partido, "_NA$", "_NUAL"),
+    str_detect(Partido, "^NA_") ~ str_replace(Partido, "^NA_", "NUAL_"),
+    str_detect(Partido, "_NA_") ~ str_replace(Partido, "_NA_", "_NUAL_"),
+    TRUE ~ Partido
+  ))
+```
+
+```{r}
+datos_2017 <- calcular_votos_coalicion(datos_2017)
+```
+
 ```{r}
 reactable(datos_2017)
 ```
@@ -143,8 +221,34 @@ Se muestra una tabla interactiva con los datos limpios utilizando la función `r
 reactable(datos_2018)
 ```
 
+
+```{r}
+datos_2018 <- datos_2018 %>%
+  mutate(Partido = str_replace_all(Partido, "NVA_ALIANZA", "NUAL"))
+```
+
+```{r}
+datos_2018 <- datos_2018 %>%
+  mutate(Partido = case_when(
+    Partido == "NA" ~ "NUAL",
+    str_detect(Partido, "_NA$") ~ str_replace(Partido, "_NA$", "_NUAL"),
+    str_detect(Partido, "^NA_") ~ str_replace(Partido, "^NA_", "NUAL_"),
+    str_detect(Partido, "_NA_") ~ str_replace(Partido, "_NA_", "_NUAL_"),
+    TRUE ~ Partido
+  ))
+```
+
+
+```{r}
+datos_2018 <- calcular_votos_coalicion(datos_2018)
+```
+
 ### Guardar los Resultados en la Carpeta 'Preprocessed': {.fade-in}
 Finalmente, los datos limpios se guardan en un archivo CSV en la carpeta 'preprocessed' para su uso posterior.
+
+```{r}
+reactable(datos_2018)
+```
 
 ```{r}
 # write_csv(datos_2018, "/home/barea/limpieza/ayuntamientos/{{cookiecutter.project_slug}}/data/preprocessed/datos_2018.csv")
@@ -174,6 +278,32 @@ datos_2019 <- purrr::map_dfr(archivos_csv_2019, limpiar_datos_2018)
 
 ### Mostrar el Resultado: {.fade-in}
 Este bloque muestra el data frame `datos_2019` en una tabla interactiva utilizando la función `reactable`.
+
+```{r}
+reactable(datos_2019)
+```
+
+
+```{r}
+datos_2019 <- datos_2019 %>%
+  mutate(Partido = str_replace_all(Partido, "NVA_ALIANZA", "NUAL"))
+```
+
+```{r}
+datos_2019 <- datos_2019 %>%
+  mutate(Partido = case_when(
+    Partido == "NA" ~ "NUAL",
+    str_detect(Partido, "_NA$") ~ str_replace(Partido, "_NA$", "_NUAL"),
+    str_detect(Partido, "^NA_") ~ str_replace(Partido, "^NA_", "NUAL_"),
+    str_detect(Partido, "_NA_") ~ str_replace(Partido, "_NA_", "_NUAL_"),
+    TRUE ~ Partido
+  ))
+```
+
+
+```{r}
+datos_2019 <- calcular_votos_coalicion(datos_2019)
+```
 
 ```{r}
 reactable(datos_2019)
@@ -215,6 +345,32 @@ Este bloque de código muestra el data frame resultante en una tabla interactiva
 reactable(datos_2021)
 ```
 
+
+```{r}
+datos_2021 <- datos_2021 %>%
+  mutate(Partido = str_replace_all(Partido, "NVA_ALIANZA", "NUAL"))
+```
+
+```{r}
+datos_2021 <- datos_2021 %>%
+  mutate(Partido = case_when(
+    Partido == "NA" ~ "NUAL",
+    str_detect(Partido, "_NA$") ~ str_replace(Partido, "_NA$", "_NUAL"),
+    str_detect(Partido, "^NA_") ~ str_replace(Partido, "^NA_", "NUAL_"),
+    str_detect(Partido, "_NA_") ~ str_replace(Partido, "_NA_", "_NUAL_"),
+    TRUE ~ Partido
+  ))
+```
+
+
+```{r}
+datos_2021 <- calcular_votos_coalicion(datos_2021)
+```
+
+```{r}
+reactable(datos_2021)
+```
+
 ### Guardar los Resultados en la Carpeta 'Preprocessed': {.fade-in}
 Finalmente, se guarda el data frame resultante en un archivo CSV en la carpeta 'preprocessed'.
 
@@ -246,6 +402,32 @@ datos_2022 <- purrr::map_dfr(archivos_csv_2022, limpiar_datos_2018)
 
 ### Mostrar el Resultado: {.fade-in}
 Se muestra una tabla interactiva con los datos limpios para su revisión.
+```{r}
+reactable(datos_2022)
+```
+
+
+```{r}
+datos_2022 <- datos_2022 %>%
+  mutate(Partido = str_replace_all(Partido, "NVA_ALIANZA", "NUAL"))
+```
+
+```{r}
+datos_2022 <- datos_2022 %>%
+  mutate(Partido = case_when(
+    Partido == "NA" ~ "NUAL",
+    str_detect(Partido, "_NA$") ~ str_replace(Partido, "_NA$", "_NUAL"),
+    str_detect(Partido, "^NA_") ~ str_replace(Partido, "^NA_", "NUAL_"),
+    str_detect(Partido, "_NA_") ~ str_replace(Partido, "_NA_", "_NUAL_"),
+    TRUE ~ Partido
+  ))
+```
+
+
+```{r}
+datos_2022 <- calcular_votos_coalicion(datos_2022)
+```
+
 ```{r}
 reactable(datos_2022)
 ```

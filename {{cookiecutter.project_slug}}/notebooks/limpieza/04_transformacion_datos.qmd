@@ -1,0 +1,1160 @@
+---
+title: "Creación de Base de Datos: Parte 3"
+css: custom.css
+
+execute:
+  enabled: true
+  kernel: R
+---
+
+## Cargamos las Librerías: {.fade-in}
+```{r}
+source('/home/barea/limpieza/ayuntamientos/model/R/script.R')
+```
+
+## Cargar Tibbles: {.fade-in}
+En esta sección, cargamos los datos limpios de los procesos electorales del año 2015 y 2016 para añadir variables adicionales.
+```{r}
+datos <- read_csv("/home/barea/limpieza/ayuntamientos/{{cookiecutter.project_slug}}/data/final/datos_electorales_2015_2023.csv")
+```
+
+```{r}
+reactable(datos)
+```
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "CHIHUAHUA" &
+      ID_municipio == 8 &
+      Municipio == "BATOPILAS" ~ "BATOPILAS DE MANUEL GOMEZ MORIN",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "CHIAPAS" &
+      ID_municipio == 55 &
+      Municipio == "METAPA" ~ "METAPA DE DOMINGUEZ",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "GUERRERO" &
+      ID_municipio %in% c(18, 59) &
+      Partido == "C_COMUN_PAN_PRD" ~ "PAN_PRD",
+      TRUE ~ Partido
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "MEXICO" &
+      ID_municipio == 5 &
+      Municipio == "ALMOLOYA DE JUAREZ 1" ~ "ALMOLOYA DE JUAREZ",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "MEXICO" &
+      ID_municipio == 6 &
+      Municipio == "ALMOLOYA DEL RIO 2" ~ "ALMOLOYA DEL RIO",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "MEXICO" &
+      ID_municipio == 13 &
+      Municipio == "ATIZAPAN DE ZARAGOZA 3" ~ "ATIZAPAN DE ZARAGOZA",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "MEXICO" &
+      ID_municipio == 19 &
+      Municipio == "CAPULHUAC 4" ~ "CAPULHUAC",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "MEXICO" &
+      ID_municipio == 21 &
+      Municipio == "COATEPEC HARINAS 5" ~ "COATEPEC HARINAS",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "MEXICO" &
+      ID_municipio == 22 &
+      Municipio == "COCOTITLAN 6" ~ "COCOTITLAN",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "MEXICO" &
+      ID_municipio == 24 &
+      Municipio == "CUAUTITLAN 7" ~ "CUAUTITLAN",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "MEXICO" &
+      ID_municipio == 25 &
+      Municipio == "CUAUTITLAN IZCALLI 8" ~ "CUAUTITLAN IZCALLI",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "MEXICO" &
+      ID_municipio == 26 &
+      Municipio == "CHALCO 9" ~ "CHALCO",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "MEXICO" &
+      ID_municipio == 32 &
+      Municipio == "CHIMALHUACAN 10" ~ "CHIMALHUACAN",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "MEXICO" &
+      ID_municipio == 38 &
+      Municipio == "HUIXQUILUCAN 11" ~ "HUIXQUILUCAN",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "MEXICO" &
+      ID_municipio == 39 &
+      Municipio == "ISIDRO FABELA 12" ~ "ISIDRO FABELA",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "MEXICO" &
+      ID_municipio == 42 &
+      Municipio == "IXTAPAN DEL ORO 13" ~ "IXTAPAN DEL ORO",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "MEXICO" &
+      ID_municipio == 45 &
+      Municipio == "JALTENCO 14" ~ "JALTENCO",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "MEXICO" &
+      ID_municipio == 56 &
+      Municipio == "MEXICALTZINGO 15" ~ "MEXICALTZINGO",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "MEXICO" &
+      ID_municipio == 58 &
+      Municipio == "NAUCALPAN DE JUAREZ 16" ~ "NAUCALPAN DE JUAREZ",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "MEXICO" &
+      ID_municipio == 60 &
+      Municipio == "NEZAHUALCOYOTL 17" ~ "NEZAHUALCOYOTL",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "MEXICO" &
+      ID_municipio == 64 &
+      Municipio == "OCUILAN 18" ~ "OCUILAN",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "MEXICO" &
+      ID_municipio == 69 &
+      Municipio == "OZUMBA 19" ~ "OZUMBA",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "MEXICO" &
+      ID_municipio == 72 &
+      Municipio == "POLOTITLAN 20" ~ "POLOTITLAN",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "MEXICO" &
+      ID_municipio == 73 &
+      Municipio == "RAYON 21" ~ "RAYON",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "MEXICO" &
+      ID_municipio == 77 &
+      Municipio == "SAN MATEO ATENCO 22" ~ "SAN MATEO ATENCO",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "MEXICO" &
+      ID_municipio == 105 &
+      Municipio == "TLALNEPANTLA DE BAZ 23" ~ "TLALNEPANTLA DE BAZ",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "MEXICO" &
+      ID_municipio == 107 &
+      Municipio == "TOLUCA 24" ~ "TOLUCA",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "MEXICO" &
+      ID_municipio == 110 &
+      Municipio == "TULTITLAN 25" ~ "TULTITLAN",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "MEXICO" &
+      ID_municipio == 111 &
+      Municipio == "VALLE DE BRAVO 26" ~ "VALLE DE BRAVO",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "MEXICO" &
+      ID_municipio == 113 &
+      Municipio == "VILLA DEL CARBON 27" ~ "VILLA DEL CARBON",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "MEXICO" &
+      ID_municipio == 114 &
+      Municipio == "VILLA GUERRERO 28" ~ "VILLA GUERRERO",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "MEXICO" &
+      ID_municipio == 119 &
+      Municipio == "ZINACANTEPEC 29" ~ "ZINACANTEPEC",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "MEXICO" &
+      ID_municipio == 124 &
+      Municipio == "SAN JOSE DEL RINCON 30" ~ "SAN JOSE DEL RINCON",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "MEXICO" &
+      ID_municipio == 125 &
+      Municipio == "TONANITLA 31" ~ "TONANITLA",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "MICHOACAN" &
+      ID_municipio == 13 &
+      Municipio == "CARÁCUARO" ~ "CARACUARO",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "MICHOACAN" &
+      ID_municipio %in% c(13, 28, 37, 44, 57, 96, 103, 108) &
+      Partido == "C_COMUN_PRD_PVEM" ~ "PRD_PVEM",
+      TRUE ~ Partido
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "MICHOACAN" &
+      ID_municipio == 37 &
+      Municipio == "HUANÍQUEO" ~ "HUANIQUEO",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "MICHOACAN" &
+      ID_municipio == 36 &
+      Partido == "C_COMUN_PAN_MC" ~ "PAN_MC",
+      TRUE ~ Partido
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "MICHOACAN" &
+      ID_municipio == 44 &
+      Municipio == "JIMÉNEZ" ~ "JIMENEZ",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "MICHOACAN" &
+      ID_municipio %in% c(60, 70, 77) &
+      Partido == "C_COMUN_PAN_PRD" ~ "PAN_PRD",
+      TRUE ~ Partido
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "MICHOACAN" &
+      ID_municipio %in% c(76, 84, 92) &
+      Partido == "C_COMUN_PAN_MC" ~ "PAN_MC",
+      TRUE ~ Partido
+    )
+  )
+```
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "MICHOACAN" &
+      ID_municipio == 57 &
+      Municipio == "NAHUÁTZEN" ~ "NAHUATZEN",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "MICHOACAN" &
+      ID_municipio == 84 &
+      Municipio == "TANCÍTARO" ~ "TANCITARO",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Municipio = case_when(
+      Año == 2018 &
+      Nombre_estado == "MICHOACAN" &
+      ID_municipio == 92 &
+      Municipio == "TINGÜINDÍN" ~ "TINGUINDIN",
+      TRUE ~ Municipio
+    )
+  )
+```
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "MORELOS" &
+      ID_municipio %in% c(15, 24, 29) &
+      Partido == "PRD_PSD...19" ~ "PRD_PSD",
+      TRUE ~ Partido
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "OAXACA" &
+      ID_municipio %in% c(28, 39, 57, 131, 170, 419, 515, 507, 555) &
+      Partido == "C_COMUN_PRI_NA...40" ~ "PRI_NUAL",
+      TRUE ~ Partido
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "OAXACA" &
+      ID_municipio %in% c(360, 427, 507)  &
+      Partido == "C_COMUN_PVEM_NA...41" ~ "PVEM_NUAL",
+      TRUE ~ Partido
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "OAXACA" &
+      ID_municipio %in% c(6, 59, 66, 72, 76, 147, 164, 260, 316, 392, 513) &
+      Partido == "C_COMUN_PRI_PVEM...39" ~ "PRI_PVEM",
+      TRUE ~ Partido
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "PUEBLA" &
+      ID_municipio %in% c(2, 22, 110, 139) &
+      Partido == "C_COMUN_PAN_PRD_MC" ~ "PRD_PAN_MC",
+      TRUE ~ Partido
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "PUEBLA" &
+      ID_municipio == 10 &
+      Partido == "C_COMUN_PAN_PCPP_PSI" ~ "PCPP_PAN_PSI",
+      TRUE ~ Partido
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "PUEBLA" &
+      ID_municipio %in% c(11, 94, 158) &
+      Partido == "C_COMUN_PAN_PRD_MC" ~ "MC_PAN_PRD",
+      TRUE ~ Partido
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "PUEBLA" &
+      ID_municipio %in% c(14, 121) &
+      Partido == "C_COMUN_PRD_MC" ~ "PRD_MC",
+      TRUE ~ Partido
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "PUEBLA" &
+      ID_municipio %in% c(19, 119) &
+      Partido == "C_COMUN_PAN_PRD" ~ "PAN_PRD",
+      TRUE ~ Partido
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "PUEBLA" &
+      ID_municipio %in% c(23, 47, 131) &
+      Partido == "C_COMUN_MC_PCPP" ~ "PCPP_MC",
+      TRUE ~ Partido
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "PUEBLA" &
+      ID_municipio %in% c(24, 56, 184) &
+      Partido == "C_COMUN_PAN_PRD_PSI" ~ "PSI_PAN_PRD",
+      TRUE ~ Partido
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "PUEBLA" &
+      ID_municipio %in% c(37, 62) &
+      Partido == "C_COMUN_PAN_PRD_MC_PSI" ~ "PSI_PAN_PRD_MC",
+      TRUE ~ Partido
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "PUEBLA" &
+      ID_municipio %in% c(40, 144, 186) &
+      Partido == "C_COMUN_MC_PSI" ~ "PSI_MC",
+      TRUE ~ Partido
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "PUEBLA" &
+      ID_municipio %in% c(43, 91, 112, 201) &
+      Partido == "C_COMUN_PAN_MC" ~ "PAN_MC",
+      TRUE ~ Partido
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "PUEBLA" &
+      ID_municipio == 54 &
+      Partido == "C_COMUN_PAN_PRD_MC_PCPP" ~ "PCPP_PAN_PRD_MC",
+      TRUE ~ Partido
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "PUEBLA" &
+      ID_municipio == 59 &
+      Partido == "C_COMUN_PAN_PCPP" ~ "PAN_PCPP",
+      TRUE ~ Partido
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "PUEBLA" &
+      ID_municipio %in% c(64, 160) &
+      Partido == "C_COMUN_NUAL_PCPP" ~ "NUAL_PCPP",
+      TRUE ~ Partido
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "PUEBLA" &
+      ID_municipio %in% c(69, 109, 183) &
+      Partido == "C_COMUN_PAN_PRD" ~ "PRD_PAN",
+      TRUE ~ Partido
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "PUEBLA" &
+      ID_municipio %in% c(74, 117, 137, 169) &
+      Partido == "C_COMUN_PAN_PCPP" ~ "PCPP_PAN",
+      TRUE ~ Partido
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "PUEBLA" &
+      ID_municipio == 86 &
+      Partido == "C_COMUN_PRD_PSI" ~ "PSI_PRD",
+      TRUE ~ Partido
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "PUEBLA" &
+      ID_municipio %in% c(88, 187) &
+      Partido == "C_COMUN_PVEM_PCPP" ~ "PVEM_PCPP",
+      TRUE ~ Partido
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "PUEBLA" &
+      ID_municipio == 96 &
+      Partido == "C_COMUN_PAN_MC_PSI" ~ "PSI_PAN_MC",
+      TRUE ~ Partido
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "PUEBLA" &
+      ID_municipio %in% c(118, 194) &
+      Partido == "C_COMUN_PAN_PRD_MC_PCPP" ~ "MC_PAN_PRD_PCPP",
+      TRUE ~ Partido
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "PUEBLA" &
+      ID_municipio == 122 &
+      Partido == "C_COMUN_PRD_MC_PCPP" ~ "PCPP_PRD_MC",
+      TRUE ~ Partido
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "PUEBLA" &
+      ID_municipio %in% c(146, 172, 181, 188) &
+      Partido == "C_COMUN_PAN_PRD_PCPP" ~ "PCPP_PAN_PRD",
+      TRUE ~ Partido
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "PUEBLA" &
+      ID_municipio == 148 &
+      Partido == "C_COMUN_PAN_PSI" ~ "PSI_PAN",
+      TRUE ~ Partido
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "PUEBLA" &
+      ID_municipio %in% c(161, 192, 213) &
+      Partido == "C_COMUN_PRD_MC" ~ "PRD_MC",
+      TRUE ~ Partido
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "PUEBLA" &
+      ID_municipio %in% c(161, 192, 213) &
+      Partido == "C_COMUN_PAN_PSI" ~ "PSI_PAN",
+      TRUE ~ Partido
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "PUEBLA" &
+      ID_municipio == 163 &
+      Partido == "C_COMUN_PAN_PRD_MC_PSI" ~ "MC_PAN_PRD_PSI",
+      TRUE ~ Partido
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "PUEBLA" &
+      ID_municipio == 177 &
+      Partido == "C_COMUN_PAN_PRD_PSI" ~ "PAN_PRD_PSI",
+      TRUE ~ Partido
+    )
+  )
+``` 
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "PUEBLA" &
+      ID_municipio %in% c(197, 208) &
+      Partido == "C_COMUN_PRI_NUAL" ~ "PRI_NUAL",
+      TRUE ~ Partido
+    )
+  )
+``` 
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "PUEBLA" &
+      ID_municipio == 198 &
+      Partido == "C_COMUN_PAN_PRD_MC_PCPP_PSI" ~ "MC_PAN_PRD_PCPP_PSI",
+      TRUE ~ Partido
+    )
+  )
+``` 
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "SAN LUIS POTOSI" &
+      ID_municipio %in% c(1, 6, 8, 9, 11, 15, 21, 28, 29, 33, 35, 43, 46, 48, 49) &
+      Partido == "PAN_MC...17" ~ "PAN_MC",
+      TRUE ~ Partido
+    )
+  )
+```
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2018 &
+      Nombre_estado == "SAN LUIS POTOSI" &
+      ID_municipio == 17 &
+      Partido == "PAN_MC...28" ~ "PAN_MC",
+      TRUE ~ Partido
+    )
+  )
+```
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Año = case_when(
+      Nombre_estado == "HIDALGO" &
+      Año == 2019 ~ 2020,
+      TRUE ~ Año
+    )
+  )
+``` 
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2021 &
+      Nombre_estado == "AGUASCALIENTES" &
+      ID_municipio %in% c(7, 11) &
+      Partido == "PT_MORENA_PANALA" ~ "PT_MORENA_NUAL",
+      TRUE ~ Partido
+    )
+  )
+```
+
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2021 &
+      Nombre_estado == "NUEVO LEON" &
+      ID_municipio == 10 &
+      Partido == "C_PVEM_PT_MORENA_PANAL" ~ "PVEM_PT_MORENA_NUAL",
+      TRUE ~ Partido
+    )
+  )
+``` 
+
+```{r}
+datos <- datos %>%
+  mutate(
+    Partido = case_when(
+      Año == 2021 &
+      Nombre_estado == "SAN LUIS POTOSI" &
+      ID_municipio %in% c(1, 12, 49) &
+      Partido == "NASLP" ~ "NUAL",
+      TRUE ~ Partido
+    )
+  )
+``` 
+
+
+```{r}
+reactable(datos)
+```
+
+
+```{r}
+# write_csv(datos, "/home/barea/limpieza/ayuntamientos/{{cookiecutter.project_slug}}/data/final/datos_electorales_2015_2023_completo.csv")
+```
